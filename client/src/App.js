@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useHistory } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import { Observer, observer } from "mobx-react-lite";
 import { Context } from "./index";
@@ -12,6 +12,7 @@ import "./components/AppRouter.css";
 
 const App = observer(() => {
   const { user } = useContext(Context);
+  // const location = useLocation();
   const [loading, setLoading] = useState(true);
   // const {device} = useContext(Observer)
 
@@ -27,6 +28,8 @@ const App = observer(() => {
   if (loading) {
     return <Spinner animation={"grow"} />;
   }
+
+  // console.log(location);
 
   return (
     <BrowserRouter>
@@ -47,6 +50,8 @@ const App = observer(() => {
 
       {/* <NavBar /> */}
       <Slider />
+      {/* //   {...(this.state.active === "/" ? true : false)} /> */}
+
       <AppRouter className="router" />
     </BrowserRouter>
   );

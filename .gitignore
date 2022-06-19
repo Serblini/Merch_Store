@@ -21,3 +21,5 @@
 /client/yarn-error.log*
 
 /server/node_modules
+/server/server.exe
+/server/*.7z
