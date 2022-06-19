@@ -2,13 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {Card, Col, Button} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import star from '../assets/star.png'
-import {useHistory, Route} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import {DEVICE_ROUTE} from "../utils/consts";
 import './AppRouter.css'
 
-import createHistory from 'history/createBrowserHistory';
 
-const history = createHistory();  
 
 
 
@@ -51,13 +49,8 @@ const DeviceItem = ({device}) => {
             <Card 
             className="router" 
             style={{width: 150, cursor: 'pointer'}} border={"light"}
-            onClick={() => history.push('device/' + device.id)}
-            // href={"/device/"+ device.id}
-            history={history}
+            onClick={() => history.push(DEVICE_ROUTE + '/' + device.id)}
             >
-                {/* <Route exact path="/"  />
-                <Route path="/" component={DEVICE_ROUTE+'/'+ device.id} /> */}
-
                 <Image width={274} height={274} src={process.env.REACT_APP_API_URL + device.img}/>
                 <div className="text-black-50 mt-1 d-flex justify-content-between align-items-center">
 
@@ -86,8 +79,6 @@ const DeviceItem = ({device}) => {
                         localStorage.setItem('device', JSON.stringify(cartDevices));
                     }
                 }
-                // style={{position:'absolute', /* добавили */
-                //     bottom:'-20px' }}
                 // as="input" type="submit" value="Submit" 
                 >Добавить в корзину</Button>
         </Col>

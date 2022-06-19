@@ -4,16 +4,8 @@ import { observer } from "mobx-react-lite";
 import { Context } from "../index";
 import Containers from "./Container";
 import logo from "./logo.png";
-import Image from "react-bootstrap/Image";
-import scrh from "../assets/scrh.png";
-import scrhb from "../assets/scrhb.png";
 import { NavLink, Link } from "react-router-dom";
-import {
-  ADMIN_ROUTE,
-  USER_ROUTE,
-  LOGIN_ROUTE,
-  SHOP_ROUTE,
-} from "../utils/consts";
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
 import { Button } from "react-bootstrap";
 // import {observer} from "mobx-react-lite";
 // import Container from "react-bootstrap/Container";
@@ -43,7 +35,6 @@ const NavBars = observer(() => {
       variant="dark"
       img
       src={logo}
-      height={65}
     >
       <image className="Navbars" bg="light" src={logo}></image>
       <Navbar.Brand className="navbar-logo" href={SHOP_ROUTE}>
@@ -85,12 +76,14 @@ const NavBars = observer(() => {
                       className="NavBarItems"
                       style={{ cursor: "pointer" }}
                       key={brand.id}
+                      className="p-3"
                       onClick={() => device.setSelectedBrand(brand)}
                       border={
                         brand.id === device.selectedBrand.id
                           ? "danger"
                           : "light"
                       }
+                      //  href={SHOP_ROUTE}
                     >
                       {brand.name}
 
@@ -109,39 +102,14 @@ const NavBars = observer(() => {
           </Nav.Link> */}
 
           <NavLink style={{ color: "white" }} to={SHOP_ROUTE}></NavLink>
-
-          <Nav className="d-flex align-items-center" style={{ color: "white" }}>
-            <Button variant={"outline-light"}>
-              {/* <Image
-                    // onClick={}
-                    style={{marginLeft:'-5',marginRight:'-5'}}
-                    width={30} height='inherit' 
-                    // style={{marginRight15}} 
-                    src={scrh}
-                    // onMouseEnter={style={'src':scrhb} }
-                    onMouseOver={e => e.currentTarget.src = scrhb}
-                    onMouseOut={e => e.currentTarget.src = scrh} 
-                    /> */}
-              {/* onClick={() => history.push(LOGIN_ROUTE)}>Авторизация */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                width={30}
-                height="inherit"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </Button>
-          </Nav>
           {user.isAuth ? (
             <Nav className="ml-auto" style={{ color: "white" }}>
+              <Button
+                variant={"outline-light"}
+                onClick={() => history.push(ADMIN_ROUTE)}
+              >
+                Админ панель
+              </Button>
               <Button
                 variant={"outline-light"}
                 onClick={() => logOut()}
@@ -159,24 +127,6 @@ const NavBars = observer(() => {
                 Авторизация
               </Button>
             </Nav>
-          )}
-          {user.user.role == "ADMIN" ? (
-            <Button
-              variant={"outline-light"}
-              onClick={() => history.push(ADMIN_ROUTE)}
-            >
-              Админ панель
-            </Button>
-          ) : (
-            user.user.role ==
-            "USER"(
-              <Button
-                variant={"outline-light"}
-                onClick={() => history.push(ADMIN_ROUTE)}
-              >
-                Личный кабиент
-              </Button>
-            )
           )}
         </Nav>
       </Navbar.Collapse>

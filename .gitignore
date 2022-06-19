@@ -1,5 +1,7 @@
 .idea
 /client/node_modules
+/client/*.exe
+/client/*.7z
 /client/.pnp
 /client/.pnp.js
 /client/yarn.lock

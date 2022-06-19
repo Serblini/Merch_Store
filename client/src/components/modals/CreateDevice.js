@@ -49,14 +49,14 @@ const CreateDevice = observer(({show, onHide}) => {
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter" variant="outline-dark">
-                    Добавить мерч
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Добавить устройство
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle variant="outline-dark">{device.selectedType.name || "Выберите категорию"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{device.selectedType.name || "Выберите тип"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.types.map(type =>
                                 <Dropdown.Item
@@ -69,7 +69,7 @@ const CreateDevice = observer(({show, onHide}) => {
                         </Dropdown.Menu>
                     </Dropdown>
                     <Dropdown className="mt-2 mb-2">
-                        <Dropdown.Toggle variant="outline-dark">{device.selectedBrand.name || "Выберите вид мерча"}</Dropdown.Toggle>
+                        <Dropdown.Toggle>{device.selectedBrand.name || "Выберите тип"}</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {device.brands.map(brand =>
                                 <Dropdown.Item
@@ -85,13 +85,13 @@ const CreateDevice = observer(({show, onHide}) => {
                         value={name}
                         onChange={e => setName(e.target.value)}
                         className="mt-3"
-                        placeholder="Введите название мерча"
+                        placeholder="Введите название устройства"
                     />
                     <Form.Control
                         value={price}
                         onChange={e => setPrice(Number(e.target.value))}
                         className="mt-3"
-                        placeholder="Введите стоимость мерча"
+                        placeholder="Введите стоимость устройства"
                         type="number"
                     />
                     <Form.Control
@@ -135,8 +135,8 @@ const CreateDevice = observer(({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide} style={{backgroundColor:'#343a40'}}>Закрыть</Button>
-                <Button variant="outline-success" onClick={addDevice} style={{backgroundColor:'#343a40'}}>Добавить</Button>
+                <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
+                <Button variant="outline-success" onClick={addDevice}>Добавить</Button>
             </Modal.Footer>
         </Modal>
     );

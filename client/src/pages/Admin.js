@@ -16,15 +16,15 @@ const Admin = () => {
                 className="mt-4 p-2"
                 onClick={() => setTypeVisible(true)}
             >
-                Добавить Категорию
+                Добавить Вид Одежды
             </Button>
-            {/* <Button
+            <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"
                 onClick={() => setBrandVisible(true)}
             >
                 Добавить Категорию
-            </Button> */}
+            </Button>
             <Button
                 variant={"outline-dark"}
                 className="mt-4 p-2"

@@ -4,7 +4,6 @@ import {authRoutes, publicRoutes} from "../routes";
 import {SHOP_ROUTE} from "../utils/consts";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
-
 import './AppRouter.css'
 
 const AppRouter = observer(() => {
@@ -13,7 +12,7 @@ const AppRouter = observer(() => {
     console.log(user)
     return (
         
-            
+
         <Switch>
             {user.isAuth && authRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} component={Component} exact/>
@@ -22,7 +21,6 @@ const AppRouter = observer(() => {
                 <Route key={path} path={path} component={Component} exact/>
                 
             )}
-            
             <Redirect to={SHOP_ROUTE}/>
         </Switch>
     );

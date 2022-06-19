@@ -54,11 +54,11 @@ const DevicePage = () => {
 
                 
                 <Col md={4}>
-                    <Image width={400} height='inherit!important' 
+                    <Image width={300} height={300} 
                     src={process.env.REACT_APP_API_URL + device.img}/>
                     <Card
                         className="d-flex flex-column align-items-center justify-content-around"
-                        style={{width: 400, 
+                        style={{width: 300, 
                             height: 115, 
                             fontSize: 32, 
                             border: '5px solid lightgray'}}
@@ -70,19 +70,18 @@ const DevicePage = () => {
                         >Добавить в корзину</Button>
                     </Card>
                 </Col>
-                <Col md={5} style={{marginLeft:65, marginRight:0}}>
+                <Col md={4}>
                     <Row className="d-flex flex-column align-items-center">
-                        <h1 style={{'text-align': 'center'}}>{device.name} <br/> </h1>
+                        <h2>{device.name}</h2>
                         
-                        <Row className="d-flex flex-column text-align-center">
-                <h1 style={{'text-align':'center'}}>О товаре</h1>
+                        <Row className="d-flex flex-column m-3">
+                <h1>О товаре</h1>
                 {device.info.map((info, index) =>
                     <Row key={info.id} style={
                         {
-                            'text-align': 'justify',
                             background: index % 2 === 0 ? 
                             'light' : 'transparent', padding: 10, 
-                            'font-size': '24px', width: '125%' }}>
+                            'font-size': '24px', width: '205%' }}>
                         {/* {info.title}: */}
                          {info.description}
                     </Row>
